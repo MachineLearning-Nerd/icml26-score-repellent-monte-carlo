@@ -1,0 +1,100 @@
+
+===== Claim C0 =====
+{
+  "passed": true,
+  "theta_dim_d": 784,
+  "discrete_state_space_size": "2^784",
+  "empirical_measure_storage_Omega": 101745825697019260773923519755878567461315282017759829107608914364075275235254395622580447400994175578963163918967182013639660669771108475957692810857098847138903161308502419410142185759152435680068435915159402496058513611411689167650816,
+  "continuous_unbounded": Infinity,
+  "SRMC_memory_O(d)": 784,
+  "log2_storage_reduction_vs_empirical_measure": 784
+}
+
+===== Claim C1 =====
+{
+  "passed": "True",
+  "analytic_eq15": {
+    "alphas": [
+      1.0,
+      2.0,
+      5.0,
+      10.0,
+      20.0,
+      50.0,
+      100.0,
+      200.0
+    ],
+    "M_inv_fro_norm": [
+      7.4603740380796,
+      6.32137828060189,
+      4.335603111708339,
+      2.845704858762532,
+      1.6865582107353516,
+      0.759028473468063,
+      0.39603063574427233,
+      0.20241996011122113
+    ],
+    "tail_slope_large_alpha": -0.9207177346116007,
+    "monotone_decreasing": true,
+    "note": "alpha-dependent block ||M(alpha)^-1||_F of Sigma_{mu mu}; Cov_pi(s,s)=V^-1 exact for Gaussian; -> O(1/alpha)."
+  },
+  "empirical_MALA": {
+    "alphas": [
+      0.0,
+      1.0,
+      2.0,
+      5.0,
+      10.0,
+      20.0
+    ],
+    "sig_thth_fro": [
+      792.7171457784078,
+      140.48380879645717,
+      133.69063453877214,
+      86.15110820534831,
+      81.71197359031564,
+      40.03534564503443
+    ],
+    "sig_X_fro": [
+      7167.1678998650505,
+      5961.965744829596,
+      5607.1135475789415,
+      2907.1640212703724,
+      1820.8594388307642,
+      786.9285865972079
+    ],
+    "acceptance": [
+      0.9263777777777777,
+      0.9378166666666666,
+      0.9452055555555555,
+      0.9601805555555556,
+      0.9737138888888889,
+      0.9865722222222222
+    ],
+    "monotone_decreasing": true,
+    "tail_slope_alpha_1_to_20": -0.39344189259012685,
+    "reduction_alpha0_to_20": 19.80043216828648
+  },
+  "criterion": "monotone decrease (empirical+analytic) AND analytic large-alpha slope<-0.6 (asymptotic 1/alpha) AND >2x reduction"
+}
+
+===== Claim C5 =====
+{
+  "passed": true,
+  "d": 8,
+  "state_space_size": 256,
+  "E_pi_s_mean_abs_max": 8.413408858487514e-17,
+  "sample_score_at_x0": [
+    -0.9135632646562478,
+    2.2861141130336944,
+    -0.6707054979728448,
+    -0.5134985854547489,
+    5.409554480301651,
+    3.559032191248865,
+    2.0263828910525703,
+    16.953304675818988
+  ],
+  "criterion": "max_i |E_pi[s_i]| < 1e-8 by exhaustive enumeration (exact Stein identity)"
+}
+
+>>> 3/3 claims passed -> /home/dineshai/Drives/Code/AllCode/ReproduceICML/papers/icml26-repro-PN8EiOzMuT-score-repellent-mc/repro/src/../../outputs/verdict.json

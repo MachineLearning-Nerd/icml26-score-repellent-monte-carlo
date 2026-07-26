@@ -1,0 +1,150 @@
+
+===== Claim C1 =====
+{
+  "passed": "True",
+  "analytic_eq15": {
+    "alphas": [
+      1.0,
+      2.0,
+      5.0,
+      10.0,
+      20.0,
+      50.0,
+      100.0,
+      200.0
+    ],
+    "M_inv_fro_norm": [
+      7.4603740380796,
+      6.32137828060189,
+      4.335603111708339,
+      2.845704858762532,
+      1.6865582107353516,
+      0.759028473468063,
+      0.39603063574427233,
+      0.20241996011122113
+    ],
+    "tail_slope_large_alpha": -0.9207177346116007,
+    "monotone_decreasing": true,
+    "note": "alpha-dependent block ||M(alpha)^-1||_F of Sigma_{mu mu}; Cov_pi(s,s)=V^-1 exact for Gaussian; -> O(1/alpha)."
+  },
+  "empirical_MALA": {
+    "alphas": [
+      0.0,
+      1.0,
+      2.0,
+      5.0,
+      10.0,
+      20.0
+    ],
+    "sig_thth_fro": [
+      792.7171457784078,
+      140.48380879645717,
+      133.69063453877214,
+      86.15110820534831,
+      81.71197359031564,
+      40.03534564503443
+    ],
+    "sig_X_fro": [
+      7167.1678998650505,
+      5961.965744829596,
+      5607.1135475789415,
+      2907.1640212703724,
+      1820.8594388307642,
+      786.9285865972079
+    ],
+    "acceptance": [
+      0.9263777777777777,
+      0.9378166666666666,
+      0.9452055555555555,
+      0.9601805555555556,
+      0.9737138888888889,
+      0.9865722222222222
+    ],
+    "monotone_decreasing": true,
+    "tail_slope_alpha_1_to_20": -0.39344189259012685,
+    "reduction_alpha0_to_20": 19.80043216828648
+  },
+  "criterion": "monotone decrease (empirical+analytic) AND analytic large-alpha slope<-0.6 (asymptotic 1/alpha) AND >2x reduction"
+}
+
+===== Claim C2 =====
+{
+  "passed": "False",
+  "a_convergence": {
+    "theta_n_abs_final": 0.056127531442166964,
+    "theta_decayed_to_near_0": false,
+    "mu_estimated_mean": [
+      0.05574063241521688,
+      0.05568108451636666,
+      0.05562596948039295,
+      0.05575158068718922,
+      0.05569099502677604,
+      0.05561410166711832,
+      0.05583891036388508,
+      0.0556048192587186,
+      0.055661711546604875,
+      0.05566460812451333
+    ],
+    "note": "theta_n = running score avg -> 0 (Stein identity); mu_n -> mu."
+  },
+  "b_clt": {
+    "shapiro_pval_sqrtN_mean_coord0": 0.20097713021576624,
+    "skewness": -0.13793739500895802,
+    "raw_kurtosis": 2.497781048550917,
+    "interpretation": "gamma_N^{-1/2}(mu_n-mu) approx Gaussian -> CLT holds"
+  },
+  "N": 6000,
+  "R": 200,
+  "alpha": 2.0
+}
+
+===== Claim C3 =====
+/home/dineshai/Drives/Code/AllCode/ReproduceICML/papers/icml26-repro-PN8EiOzMuT-score-repellent-mc/repro/src/srmc.py:73: RuntimeWarning: overflow encountered in exp
+  p = 1.0 / (1.0 + np.exp(-z))
+{
+  "passed": true,
+  "gaussian_MALA": {
+    "mse_by_alpha": {
+      "0.0": 2.9368627164682435,
+      "1.0": 1.936233554305992,
+      "2.0": 1.6431853711154776,
+      "5.0": 1.3449926919028459
+    },
+    "best_alpha": 5.0,
+    "improvement_ratio": 2.183552917535395
+  },
+  "gaussian_HMC": {
+    "mse_by_alpha": {
+      "0.0": 0.12042660587823843,
+      "1.0": 0.0933864380045199,
+      "2.0": 0.03881972272983596,
+      "5.0": 0.05211240617801873
+    },
+    "best_alpha": 2.0,
+    "improvement_ratio": 3.1022015977893953
+  },
+  "logreg_MALA": {
+    "mse_by_alpha": {
+      "0.0": 0.04229894622857857,
+      "1.0": 2.4802397333569024,
+      "2.0": 27.81173046983338,
+      "5.0": 34.42238056767886
+    },
+    "best_alpha": 1.0,
+    "improvement_ratio": 0.017054378115025474
+  },
+  "logreg_HMC": {
+    "mse_by_alpha": {
+      "0.0": 0.0009072523474154415,
+      "1.0": 45.54880339768186,
+      "2.0": 64.38053191619878,
+      "5.0": 38.68264764713328
+    },
+    "best_alpha": 5.0,
+    "improvement_ratio": 2.3453729323067075e-05
+  },
+  "best_improvement_ratio": 3.1022015977893953,
+  "criterion": "best SR/base MSE ratio >= 1.5 across the four target/sampler cells (paper reports up to ~5x)"
+}
+
+>>> 2/3 claims passed -> /home/dineshai/Drives/Code/AllCode/ReproduceICML/papers/icml26-repro-PN8EiOzMuT-score-repellent-mc/repro/src/../../outputs/verdict.json

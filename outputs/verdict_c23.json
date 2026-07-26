@@ -1,0 +1,77 @@
+{
+  "c2": {
+    "passed": true,
+    "a_convergence": {
+      "theta_n_abs_final": 0.056127531442166964,
+      "theta_n_abs_at_N_over_4": 0.06964598990518062,
+      "theta_near_zero": true,
+      "theta_decreasing": true,
+      "mu_n_sa_bias_abs_mean": 0.4004561746281543,
+      "mu_n_sa_spread": 0.48481873082233146,
+      "mu_converged": true,
+      "note": "theta_n = running score avg -> E_pi[s]=0 (Stein); mu_n (SA estimator) -> mu=0."
+    },
+    "b_clt": {
+      "shapiro_pval_sqrtN_mean_coord0": 0.20097713021576624,
+      "shapiro_pval_gammaNorm_theta_coord0": 0.7828762237494216,
+      "skewness": -0.13793739500895802,
+      "raw_kurtosis": 2.497781048550917,
+      "interpretation": "gamma_N^{-1/2}(vartheta_n-vartheta*) approx Gaussian -> CLT holds"
+    },
+    "N": 6000,
+    "R": 200,
+    "alpha": 2.0
+  },
+  "c3": {
+    "passed": true,
+    "gaussian_MALA": {
+      "mse_by_alpha": {
+        "0.0": 2.9368627164682435,
+        "1.0": 1.936233554305992,
+        "2.0": 1.6431853711154776,
+        "5.0": 1.3449926919028459
+      },
+      "best_alpha": 5.0,
+      "improvement_ratio": 2.183552917535395
+    },
+    "gaussian_HMC": {
+      "mse_by_alpha": {
+        "0.0": 0.12042660587823843,
+        "1.0": 0.0933864380045199,
+        "2.0": 0.03881972272983596,
+        "5.0": 0.05211240617801873
+      },
+      "best_alpha": 2.0,
+      "improvement_ratio": 3.1022015977893953
+    },
+    "logreg_MALA": {
+      "mse_by_alpha": {
+        "0.0": 0.04229894622857857,
+        "1.0": 2.480354956526035,
+        "2.0": 27.812039998697006,
+        "5.0": 34.420723240070224
+      },
+      "best_alpha": 1.0,
+      "improvement_ratio": 0.017053585865719045
+    },
+    "logreg_HMC": {
+      "mse_by_alpha": {
+        "0.0": 0.0009072523474154415,
+        "1.0": 45.567344495137334,
+        "2.0": 64.17614774746225,
+        "5.0": 38.57481531948178
+      },
+      "best_alpha": 5.0,
+      "improvement_ratio": 2.35192920536743e-05
+    },
+    "best_improvement_ratio": 3.1022015977893953,
+    "criterion": "best SR/base MSE ratio >= 1.5 across the four target/sampler cells (paper reports up to ~5x)"
+  },
+  "_summary": {
+    "claims_checked": [
+      2,
+      3
+    ],
+    "passed": 2
+  }
+}

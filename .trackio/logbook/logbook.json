@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "title": "Repro - Score-Repellent Monte Carlo (SRMC)",
+  "emoji": "🎲",
+  "space_id": "DineshAI/PN8EiOzMuT",
+  "paper": null,
+  "tags": [
+    "icml2026-repro",
+    "paper-PN8EiOzMuT"
+  ],
+  "updated_at": "2026-07-26T00:00:00+00:00",
+  "root": {
+    "slug": "index",
+    "title": "Repro - Score-Repellent Monte Carlo (SRMC)",
+    "file": "pages/index.md",
+    "children": [
+      {"slug": "overview", "title": "Overview", "file": "pages/overview/page.md", "children": []},
+      {"slug": "claims", "title": "Claims", "file": "pages/claims/page.md", "children": []},
+      {"slug": "evidence", "title": "Evidence", "file": "pages/evidence/page.md", "children": []},
+      {"slug": "methods", "title": "Methods & negative controls", "file": "pages/methods/page.md", "children": []},
+      {"slug": "conclusion", "title": "Conclusion", "file": "pages/conclusion/page.md", "children": []}
+    ]
+  }
+}
