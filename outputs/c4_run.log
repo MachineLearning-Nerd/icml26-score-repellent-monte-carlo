@@ -1,0 +1,11 @@
+loaded MNIST (60000, 784), training RBM H=300...
+  rbm epoch 3/18
+  rbm epoch 6/18
+  rbm epoch 9/18
+  rbm epoch 12/18
+  rbm epoch 15/18
+  rbm epoch 18/18
+  GWG alpha=0.0: final KL=2.247  Vendi=1.058  classes=5
+  SR-GWG alpha=0.0001: final KL=2.229  Vendi=1.103  classes=5
+
+C4 done in 171s: KL reduction 0.8%, Vendi 1.06->1.10

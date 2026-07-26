@@ -175,9 +175,37 @@
       "c1",
       "c2",
       "c3",
+      "c4",
       "c5"
     ],
     "passed": 5,
-    "total": 5
+    "total": 6,
+    "note": "C0,C1,C2,C3,C5 verified (10 pts); C4 honest negative (clean-room EBM)"
+  },
+  "c4": {
+    "passed": false,
+    "honest_negative": true,
+    "claim": "Static-MNIST SR-GWG 84% KL reduction, Vendi 2.6->6.4 (alpha=1e-4)",
+    "GWG": {
+      "final_KL": 2.24651652871622,
+      "final_vendi": 1.0575993064658735,
+      "classes": 5
+    },
+    "SR-GWG": {
+      "final_KL": 2.229472736495766,
+      "final_vendi": 1.1030059260419438,
+      "classes": 5
+    },
+    "KL_reduction_fraction": 0.0076,
+    "vendi_gain": 0.045,
+    "result": "SR-GWG negligibly better than GWG (~0.8% KL); does NOT reproduce paper's 84%/Vendi 6.4.",
+    "root_cause": "Clean-room RBM (H=300, 18ep) differs from paper's deep EBM; alpha=1e-4 gives negligible tilt at this EBM's score magnitudes; GWG baseline already explores 5/10 classes (not mode-trapped like paper's scenario). Mechanism (score-repellent tilt) is implemented and verified by C1-C3,C5; the EBM-specific magnitude is not reproducible without the authors' model.",
+    "config": {
+      "steps": 3000,
+      "n_chains": 100,
+      "alpha": 0.0001,
+      "H": 300,
+      "epochs": 18
+    }
   }
 }
