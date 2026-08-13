@@ -1,7 +1,8 @@
-"""Verification harness for the six anchored claims of SRMC (PN8EiOzMuT).
+"""Audit harness for six SRMC claims (PN8EiOzMuT).
 
-Each claim_* function returns a dict with `passed` (bool) and the raw evidence.
-The harness writes outputs/verdict.json (the publication gate input).
+Each claim function returns raw local evidence. A passing finite diagnostic is
+not a proof of a theorem or a reproduction of the authors' full experiment.
+The canonical interpretation is written by finalize_gate.py.
 
 Claims:
   C0  O(d) constant memory vs Omega(|X|) empirical-measure storage.
@@ -96,7 +97,7 @@ def _analytic_alpha_block_gaussian(V, alphas, rho_is_one=True):
 
 
 def claim_c1_scaling(N=3000, R=120):
-    """C1: Sigma_X(alpha) = O(1/alpha).  Two-pronged: analytic Eq-15 + empirical MALA."""
+    """C1: partial Gaussian evidence for the O(1/alpha) covariance trend."""
     d, rho = 10, 0.9
     mu = np.zeros(d)
     V = rho * np.ones((d, d)) + (1 - rho) * np.eye(d)
@@ -128,7 +129,7 @@ def claim_c1_scaling(N=3000, R=120):
     # overall reduction factor alpha=0 -> alpha=20
     reduction = emp[0.0]["sig_thth"] / emp[20.0]["sig_thth"]
 
-    passed = monotone_an and monotone_em and slope_an < -0.6 and reduction > 2.0
+    passed = bool(monotone_an and monotone_em and slope_an < -0.6 and reduction > 2.0)
     return {
         "passed": passed,
         "analytic_eq15": {
@@ -136,8 +137,8 @@ def claim_c1_scaling(N=3000, R=120):
             "M_inv_fro_norm": list(Minv_norm),
             "tail_slope_large_alpha": float(slope_an),
             "monotone_decreasing": monotone_an,
-            "note": "alpha-dependent block ||M(alpha)^-1||_F of Sigma_{mu mu}; "
-                    "Cov_pi(s,s)=V^-1 exact for Gaussian; -> O(1/alpha).",
+            "note": "Gaussian alpha-dependent block ||M(alpha)^-1||_F and one local "
+                    "SR-MALA sweep support the trend; this is not a proof of Proposition 3.4.",
         },
         "empirical_MALA": {
             "alphas": alphas_em,
@@ -148,14 +149,14 @@ def claim_c1_scaling(N=3000, R=120):
             "tail_slope_alpha_1_to_20": float(slope_em),
             "reduction_alpha0_to_20": float(reduction),
         },
-        "criterion": "monotone decrease (empirical+analytic) AND analytic large-alpha slope<-0.6 "
-                     "(asymptotic 1/alpha) AND >2x reduction",
+        "criterion": "monotone decrease (empirical+analytic), analytic large-alpha slope<-0.6, "
+                     "and >2x local reduction",
     }
 
 
 # ----------------------------------------------------------------------------
 def claim_c2_convergence_clt(N=6000, R=200):
-    """C2: Theorem 3.3.  (a) theta_n -> 0, mu_n -> mu a.s.;  (b) CLT normality."""
+    """C2: finite convergence and normality diagnostics related to Theorem 3.3."""
     d, rho = 10, 0.9
     mu = np.zeros(d)
     V = rho * np.ones((d, d)) + (1 - rho) * np.eye(d)
@@ -217,7 +218,8 @@ def claim_c2_convergence_clt(N=6000, R=200):
             "shapiro_pval_gammaNorm_theta_coord0": float(sw_p_th),
             "skewness": skew,
             "raw_kurtosis": kurt,
-            "interpretation": "gamma_N^{-1/2}(vartheta_n-vartheta*) approx Gaussian -> CLT holds",
+            "interpretation": "finite normality diagnostic is consistent with the CLT; "
+                            "it does not establish almost-sure convergence or the theorem",
         },
         "N": N, "R": R, "alpha": alpha,
     }
@@ -243,7 +245,7 @@ def _mse_mean(target, kernel, alpha, N, R, tau, eps_hvp, rho_sa, seed0,
 
 
 def claim_c3_mse(N=3000, R=60):
-    """C3: SR-MALA/SR-HMC up to ~5x lower MSE than base on 10-D targets."""
+    """C3: local continuous-target MSE comparison for SR-MALA/SR-HMC."""
     # --- correlated Gaussian d=10 rho=0.9 ---
     d, rho = 10, 0.9
     V = rho * np.ones((d, d)) + (1 - rho) * np.eye(d)
@@ -298,8 +300,8 @@ def claim_c3_mse(N=3000, R=60):
         "logreg_HMC": {"mse_by_alpha": lr_hmc, "best_alpha": best_lrh_a,
                        "improvement_ratio": ratio_hmc_lr},
         "best_improvement_ratio": float(best_ratio),
-        "criterion": "best SR/base MSE ratio >= 1.5 across the four target/sampler cells "
-                     "(paper reports up to ~5x)",
+        "criterion": "at least one local SR/base MSE ratio >= 1.5; logistic-regression "
+                     "cells are retained because mixed results matter",
     }
 
 

@@ -1,15 +1,15 @@
-# Publication gate ready — PN8EiOzMuT
+# Publication gate
 
-FULL_GATE_READY: PN8EiOzMuT
+**Ready for publication as an honest scoped audit.**
 
-Local publication gate complete for **Score-Repellent Monte Carlo (SRMC)**
-(arXiv 2604.22948, OpenReview `PN8EiOzMuT`).
+This gate confirms that the repository contains reproducible local evidence,
+claim-level limitations, citation, and attribution. It does not claim that
+the six paper claims are all reproduced.
 
-- `outputs/verdict.json` — deterministic per-claim verdict with raw evidence.
-- `publication_gate.json` — fail-closed gate (`tests_passed`, `publication_gate_passed`).
-- `repro/src/srmc.py` — clean-room numpy implementation of every paper equation.
-- `repro/src/verify.py` — independent verification harness (claims 0–5).
-- `.trackio/logbook/` — evidence logbook (index/claims/evidence/methods/conclusion).
-
-Verified claims: see `publication_gate.json`. GitHub mirror pending user `!` (public-repo
-guard); HF Space publication owned by the shared drain after enqueue.
+- Local checks passing: 5/6
+- C4: honest negative, not reproduced
+- Full paper claims independently verified: 0/6
+- Canonical result: outputs/verdict.json
+- Gate metadata: publication_gate.json
+- Core command: python3 repro/src/verify.py --claims 0,1,2,3,5
+- C4 command: python3 repro/src/c4_mnist.py --steps 3000 --alpha 1e-4 --epochs 18

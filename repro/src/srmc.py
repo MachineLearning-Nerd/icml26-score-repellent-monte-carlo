@@ -1,8 +1,9 @@
-"""Score-Repellent Monte Carlo (SRMC) — clean-room faithful implementation.
+"""Score-Repellent Monte Carlo (SRMC) — bounded clean-room implementation.
 
-Reproduces the algorithm and theory of Hu, Chen, Kim, Choi, Han, Eun (2026),
-arXiv:2604.22948 "Score-Repellent Monte Carlo: Toward Efficient Non-Markovian
-Sampler with Constant Memory in General State Spaces".
+Paper contract: Hu, Chen, Kim, Choi, Han, Eun (2026), arXiv:2604.22948v2.
+This module implements the algorithmic equations used by the local audit; it
+does not prove the stochastic-approximation theorems or reproduce the authors'
+training-scale experiment stack.
 
 Core equations (paper numbering):
   Eq (1)  theta-recursion:  theta_{n+1} = theta_n + gamma_{n+1}(s(X_{n+1}) - theta_n),

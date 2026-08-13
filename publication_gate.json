@@ -1,8 +1,25 @@
 {
   "paper": "PN8EiOzMuT",
+  "title": "Score-Repellent Monte Carlo: Toward Efficient Non-Markovian Sampler with Constant Memory in General State Spaces",
+  "arxiv": "2604.22948",
+  "paper_version_pinned": "v2 (2026-05-22)",
   "tests_passed": true,
   "publication_gate_passed": true,
-  "claims_verified": 5,
-  "claims_total": 5,
-  "arxiv": "2604.22948"
+  "paper_reproduction": "inconclusive",
+  "paper_claims_verified": 0,
+  "local_checks_passed": 5,
+  "partial_claims": 5,
+  "claims_not_reproduced": 6,
+  "claims_total": 6,
+  "claim_status": {
+    "C0": "FINITE_ACCOUNTING",
+    "C1": "PARTIAL_REPRODUCTION",
+    "C2": "PROXY_PASS",
+    "C3": "MIXED_PARTIAL",
+    "C4": "NOT_REPRODUCED",
+    "C5": "FINITE_EXACT_CHECK"
+  },
+  "canonical_verdict": "INCONCLUSIVE",
+  "command": "python3 repro/src/verify.py --claims 0,1,2,3,5; python3 repro/src/c4_mnist.py",
+  "attribution": "MachineLearning-Nerd"
 }
