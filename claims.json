@@ -1,0 +1,139 @@
+{
+  "schema_version": 1,
+  "paper": {
+    "title": "Score-Repellent Monte Carlo: Toward Efficient Non-Markovian Sampler with Constant Memory in General State Spaces",
+    "arxiv": "2604.22948",
+    "submission": "PN8EiOzMuT",
+    "version": "v2 (2026-05-22)",
+    "authors": [
+      "Jie Hu",
+      "Lingyun Chen",
+      "Geeho Kim",
+      "Jinyoung Choi",
+      "Bohyung Han",
+      "Do Young Eun"
+    ]
+  },
+  "overall_status": "INCONCLUSIVE_C0_FINITE_ACCOUNTING_C1_PARTIAL_C2_PROXY_C3_MIXED_C4_NOT_REPRODUCED_C5_FINITE_EXACT_NO_PAPER_CLAIMS_VERIFIED_NO_CURRENT_SCORE",
+  "claims": [
+    {
+      "id": "C0",
+      "name": "constant_memory_accounting",
+      "status": "FINITE_ACCOUNTING",
+      "paper_anchor": "Constant-memory score-history representation",
+      "production": [
+        "repro/src/verify.py:claim_c0_memory",
+        "outputs/verdict.json:c0"
+      ],
+      "scope": "Finite comparison between one d-dimensional vector and 2^784 discrete states.",
+      "metrics": {
+        "theta_dim_d": 784,
+        "paper_claim_reproduced": false
+      },
+      "limitation": "Not a runtime, allocator, or total-kernel memory benchmark."
+    },
+    {
+      "id": "C1",
+      "name": "proposition3_4_covariance_scaling",
+      "status": "PARTIAL_REPRODUCTION",
+      "paper_anchor": "Proposition 3.4 and Eq. 16",
+      "production": [
+        "repro/src/verify.py:claim_c1_scaling",
+        "repro/src/srmc.py",
+        "outputs/verdict.json:c1"
+      ],
+      "scope": "Gaussian analytic alpha trend plus one local SR-MALA sweep.",
+      "metrics": {
+        "tail_slope_large_alpha": -0.9207177346116007,
+        "reduction_alpha0_to_20": 19.80043216828648,
+        "paper_claim_reproduced": false
+      },
+      "limitation": "General targets, kernels, assumptions, and full proposition proof are absent."
+    },
+    {
+      "id": "C2",
+      "name": "theorem3_3_convergence_clt",
+      "status": "PROXY_PASS",
+      "paper_anchor": "Theorem 3.3",
+      "production": [
+        "repro/src/verify.py:claim_c2_convergence_clt",
+        "repro/src/srmc.py",
+        "outputs/verdict.json:c2"
+      ],
+      "scope": "Finite Gaussian trajectories and normality diagnostics.",
+      "metrics": {
+        "N": 6000,
+        "R": 200,
+        "paper_claim_reproduced": false
+      },
+      "limitation": "Finite thresholds and normality tests do not establish almost-sure convergence or a joint CLT."
+    },
+    {
+      "id": "C3",
+      "name": "continuous_target_mse",
+      "status": "MIXED_PARTIAL",
+      "paper_anchor": "Continuous-target MSE comparisons",
+      "production": [
+        "repro/src/verify.py:claim_c3_mse",
+        "repro/src/srmc.py",
+        "outputs/verdict.json:c3"
+      ],
+      "scope": "Correlated Gaussian and synthetic Bayesian logistic-regression MALA/HMC cells.",
+      "metrics": {
+        "gaussian_mala_improvement_ratio": 2.183552917535395,
+        "gaussian_hmc_improvement_ratio": 3.1022015977893953,
+        "paper_claim_reproduced": false
+      },
+      "limitation": "Both local logistic cells worsen; paper-scale step-count and CPU-time curves are absent."
+    },
+    {
+      "id": "C4",
+      "name": "static_mnist_srgwg",
+      "status": "NOT_REPRODUCED",
+      "paper_anchor": "Static-MNIST SR-GWG quality result",
+      "production": [
+        "repro/src/c4_mnist.py",
+        "outputs/c4_mnist.json",
+        "outputs/verdict.json:c4"
+      ],
+      "scope": "Clean-room RBM, 100 chains, 3,000 steps, alpha=1e-4.",
+      "metrics": {
+        "KL_reduction_fraction": 0.0076,
+        "vendi_gain": 0.045,
+        "paper_claim_reproduced": false
+      },
+      "limitation": "The result is about 0.8% KL reduction and Vendi 1.06 to 1.10, not the paper's 84% and 2.6 to 6.4."
+    },
+    {
+      "id": "C5",
+      "name": "proposition3_6_discrete_stein",
+      "status": "FINITE_EXACT_CHECK",
+      "paper_anchor": "Proposition 3.6",
+      "production": [
+        "repro/src/verify.py:claim_c5_discrete_stein",
+        "repro/src/srmc.py",
+        "outputs/verdict.json:c5"
+      ],
+      "scope": "Exhaustive enumeration of one 8-dimensional Ising target.",
+      "metrics": {
+        "state_space_size": 256,
+        "E_pi_s_mean_abs_max": 8.413408858487514e-17,
+        "paper_claim_reproduced": false
+      },
+      "limitation": "Exact for one finite target, not a formal proof of the general identity."
+    }
+  ],
+  "audit": {
+    "local_checks_passed": 5,
+    "partial_claims": 5,
+    "claims_not_reproduced": 1,
+    "paper_claims_not_verified": 6,
+    "claims_total": 6,
+    "evidence_points": 8,
+    "evidence_points_total": 12,
+    "paper_claims_verified": 0,
+    "current_score_claim": false,
+    "publication_allowed": false,
+    "attribution": "MachineLearning-Nerd <MachineLearning-Nerd@users.noreply.github.com>"
+  }
+}

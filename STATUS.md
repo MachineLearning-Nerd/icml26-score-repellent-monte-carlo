@@ -1,29 +1,20 @@
-# Status — Score-Repellent Monte Carlo
+# Reproduction status
 
-- Paper: arXiv 2604.22948v2, revised 2026-05-22
-- Scope: bounded clean-room NumPy and small-EBM audit
-- Canonical verdict: **INCONCLUSIVE**
-- Local checks passing: **5/6**
-- Honest negative: **C4 Static-MNIST**
-- Full paper claims independently verified: **0/6**
+Paper: Score-Repellent Monte Carlo: Toward Efficient Non-Markovian Sampler with Constant Memory in General State Spaces
 
-Claim statuses:
+Paper version pinned: arXiv 2604.22948v2, revised 2026-05-22
 
-- C0 FINITE_ACCOUNTING
-- C1 PARTIAL_REPRODUCTION
-- C2 PROXY_PASS
-- C3 MIXED_PARTIAL
-- C4 NOT_REPRODUCED
-- C5 FINITE_EXACT_CHECK
+Overall status:
 
-The earlier “5/6 claims verified = 10 pts” label is retained only in old
-history and raw run context. The canonical interpretation distinguishes
-finite checks from theorem proofs and paper-scale experiments.
+INCONCLUSIVE_C0_FINITE_ACCOUNTING_C1_PARTIAL_C2_PROXY_C3_MIXED_C4_NOT_REPRODUCED_C5_FINITE_EXACT_NO_PAPER_CLAIMS_VERIFIED_NO_CURRENT_SCORE
 
-Core command:
+- C0 constant-memory accounting: FINITE_ACCOUNTING.
+- C1 Gaussian covariance trend: PARTIAL_REPRODUCTION.
+- C2 convergence and normality: PROXY_PASS only.
+- C3 continuous-target MSE: MIXED_PARTIAL.
+- C4 Static-MNIST quality: NOT_REPRODUCED; honest negative retained.
+- C5 discrete Stein identity: FINITE_EXACT_CHECK.
 
-~~~bash
-python3 repro/src/verify.py --claims 0,1,2,3,5
-~~~
-
-See README.md and outputs/verdict.json for the evidence ledger.
+Five of six local checks pass, but local finite checks are not complete paper
+claims. Eight of twelve scoped evidence points are supported, and zero of
+six complete paper-level claims are independently verified.

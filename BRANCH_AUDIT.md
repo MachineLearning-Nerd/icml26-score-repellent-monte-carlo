@@ -1,21 +1,28 @@
 # Branch and commit audit
 
-## Initial state
+## Normalization
 
-- Repository: icml26-repro-PN8EiOzMuT-score-repellent-mc
-- Initial and current branch name: main
-- Initial remote branches: main only
-- Reachable commits initially used the loop-srmc author and committer
-- The second initial commit contained a Claude co-author trailer
-- No experiment or paper-version branches were present
+- Source tip before standardization:
+  f3256f6bc984577564a30462fc43a99f6fe2194e.
+- The source and live repository publish one branch, main.
+- No experiment, orx/*, or paper-version branch is in scope.
+- Recovery bundle SHA-256:
+  be22286b8b090e2b6120f03593138cd4b131399526def6f88737fa2e99e37e98.
+- The recovery bundle preserves the complete pre-normalization history.
 
-## Publication state
+## Current branch policy
 
-- Canonical branch: main
-- Legacy master branch: none
-- Reachable commit attribution: MachineLearning-Nerd GitHub no-reply identity
-- No orx/* or other experiment branches are in scope
+- main is the canonical paper metadata, evidence, and verifier branch.
+- New evidence should use a descriptive audit/... branch and record the paper
+  version, command, inputs, outputs, controls, and limitations before merging.
+- C4's negative result must remain visible; it must not be silently replaced
+  by a pass without new paper-faithful evidence.
 
-Attribution cleanup is repository hygiene. It does not change the scientific
-status: C4 remains an honest negative and the paper-level result remains
-INCONCLUSIVE.
+## Attribution policy
+
+All reachable commits in the published history use:
+
+MachineLearning-Nerd <MachineLearning-Nerd@users.noreply.github.com>
+
+The earlier local loop-srmc identity and co-author trailer are retained only
+in the recovery bundle and history notes, not in live commit metadata.

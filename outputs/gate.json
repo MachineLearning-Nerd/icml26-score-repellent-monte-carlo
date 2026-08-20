@@ -1,8 +1,11 @@
 {
   "paper": "PN8EiOzMuT",
+  "slug": "icml26-score-repellent-monte-carlo",
   "title": "Score-Repellent Monte Carlo: Toward Efficient Non-Markovian Sampler with Constant Memory in General State Spaces",
   "arxiv": "2604.22948",
-  "paper_version_pinned": "v2 (2026-05-22)",
+  "paper_version": "v2 (2026-05-22)",
+  "scope": "bounded_clean_room_numpy_and_small_ebm_audit",
+  "overall_status": "INCONCLUSIVE",
   "tests_passed": true,
   "documentation_gate_passed": true,
   "publication_gate_passed": true,
@@ -10,15 +13,14 @@
   "paper_algorithm_implemented": true,
   "paper_claims_reproduced": false,
   "paper_reproduction": "inconclusive",
-  "overall_status": "INCONCLUSIVE_C0_FINITE_ACCOUNTING_C1_PARTIAL_C2_PROXY_C3_MIXED_C4_NOT_REPRODUCED_C5_FINITE_EXACT_NO_PAPER_CLAIMS_VERIFIED_NO_CURRENT_SCORE",
-  "paper_claims_verified": 0,
+  "claims_total": 6,
   "local_checks_passed": 5,
   "partial_claims": 5,
   "claims_not_reproduced": 1,
   "paper_claims_not_verified": 6,
-  "claims_total": 6,
   "evidence_points": 8,
   "evidence_points_total": 12,
+  "paper_claims_verified": 0,
   "current_score_claim": false,
   "publication_allowed": false,
   "claim_status": {
@@ -29,7 +31,9 @@
     "C4": "NOT_REPRODUCED",
     "C5": "FINITE_EXACT_CHECK"
   },
-  "canonical_verdict": "INCONCLUSIVE",
-  "command": "python3 repro/src/verify.py --claims 0,1,2,3,5; python3 repro/src/c4_mnist.py",
+  "canonical_evidence": "CLAIM_EVIDENCE.md",
+  "canonical_verdict": "outputs/verdict.json",
+  "verification_command": "python3 repro/src/verify.py --claims 0,1,2,3,5; python3 repro/src/c4_mnist.py",
+  "gate_notes": "Five local checks pass, C3 is mixed, and C4 is an honest negative. Finite evidence does not establish the paper's full theorems or paper-scale experiments.",
   "attribution": "MachineLearning-Nerd <MachineLearning-Nerd@users.noreply.github.com>"
 }

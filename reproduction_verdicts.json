@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "paper": "PN8EiOzMuT",
+  "arxiv": "2604.22948",
+  "paper_version": "v2 (2026-05-22)",
+  "overall_verdict": "INCONCLUSIVE_C0_FINITE_ACCOUNTING_C1_PARTIAL_C2_PROXY_C3_MIXED_C4_NOT_REPRODUCED_C5_FINITE_EXACT",
+  "claim_statuses": {
+    "C0": "FINITE_ACCOUNTING",
+    "C1": "PARTIAL_REPRODUCTION",
+    "C2": "PROXY_PASS",
+    "C3": "MIXED_PARTIAL",
+    "C4": "NOT_REPRODUCED",
+    "C5": "FINITE_EXACT_CHECK"
+  },
+  "evidence": {
+    "local_checks_passed": 5,
+    "partial_claims": 5,
+    "claims_not_reproduced": 1,
+    "paper_claims_not_verified": 6,
+    "evidence_points": 8,
+    "evidence_points_total": 12,
+    "paper_claims_verified": 0,
+    "current_score_claim": false,
+    "publication_allowed": false
+  },
+  "boundary": "C0-C2 and C5 are finite or partial checks, C3 is mixed across target families, and C4 is an honest negative against the paper-scale Static-MNIST result. No complete paper-level claim is independently verified.",
+  "attribution": "MachineLearning-Nerd <MachineLearning-Nerd@users.noreply.github.com>"
+}

@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "paper": "Score-Repellent Monte Carlo: Toward Efficient Non-Markovian Sampler with Constant Memory in General State Spaces",
+  "arxiv": "2604.22948",
+  "submission": "PN8EiOzMuT",
+  "paper_version": "v2 (2026-05-22)",
+  "phase": "standardized_claim_audit_publication",
+  "status": "INCONCLUSIVE_C0_FINITE_ACCOUNTING_C1_PARTIAL_C2_PROXY_C3_MIXED_C4_NOT_REPRODUCED_C5_FINITE_EXACT_NO_PAPER_CLAIMS_VERIFIED_NO_CURRENT_SCORE",
+  "next_action": "Retain the C3 mixed result and C4 negative result. Reproduce author-faithful continuous and Static-MNIST configurations before upgrading any claim.",
+  "current_score_claim": false,
+  "publication_allowed": false,
+  "author_endorsement_claimed": false,
+  "claim_statuses": {
+    "C0": "FINITE_ACCOUNTING",
+    "C1": "PARTIAL_REPRODUCTION",
+    "C2": "PROXY_PASS",
+    "C3": "MIXED_PARTIAL",
+    "C4": "NOT_REPRODUCED",
+    "C5": "FINITE_EXACT_CHECK"
+  },
+  "source": {
+    "source_tip_before_standardization": "f3256f6bc984577564a30462fc43a99f6fe2194e"
+  },
+  "repository": {
+    "owner": "MachineLearning-Nerd",
+    "canonical_email": "MachineLearning-Nerd@users.noreply.github.com",
+    "github": "https://github.com/MachineLearning-Nerd/icml26-score-repellent-monte-carlo",
+    "branches": 1,
+    "recovery_bundle_sha256": "be22286b8b090e2b6120f03593138cd4b131399526def6f88737fa2e99e37e98"
+  }
+}

@@ -1,0 +1,45 @@
+cff-version: 1.2.0
+title: "Score-Repellent Monte Carlo — independent mixed-results audit"
+message: "Please cite the paper for its research claims and this repository for the audit artifacts."
+type: software
+authors:
+  - family-names: Hu
+    given-names: Jie
+  - family-names: Chen
+    given-names: Lingyun
+  - family-names: Kim
+    given-names: Geeho
+  - family-names: Choi
+    given-names: Jinyoung
+  - family-names: Han
+    given-names: Bohyung
+  - family-names: Eun
+    given-names: Do Young
+repository-code: "https://github.com/MachineLearning-Nerd/icml26-score-repellent-monte-carlo"
+url: "https://arxiv.org/abs/2604.22948"
+version: "1.0.0"
+date-released: 2026-08-20
+keywords:
+  - Monte Carlo
+  - score-repellent sampling
+  - stochastic approximation
+  - reproducibility
+preferred-citation:
+  type: article
+  title: "Score-Repellent Monte Carlo: Toward Efficient Non-Markovian Sampler with Constant Memory in General State Spaces"
+  authors:
+    - family-names: Hu
+      given-names: Jie
+    - family-names: Chen
+      given-names: Lingyun
+    - family-names: Kim
+      given-names: Geeho
+    - family-names: Choi
+      given-names: Jinyoung
+    - family-names: Han
+      given-names: Bohyung
+    - family-names: Eun
+      given-names: Do Young
+  journal: "arXiv preprint arXiv:2604.22948"
+  year: 2026
+  url: "https://arxiv.org/abs/2604.22948"

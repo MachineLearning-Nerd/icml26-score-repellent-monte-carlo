@@ -1,0 +1,31 @@
+{
+  "manifest_version": 1,
+  "repository": "MachineLearning-Nerd/icml26-score-repellent-monte-carlo",
+  "required_paths": [
+    "README.md",
+    "STATUS.md",
+    "CLAIM_EVIDENCE.md",
+    "SOURCE_AUDIT.md",
+    "ENVIRONMENT.md",
+    "REPORT.md",
+    "AUTHOR_THANK_YOU.md",
+    "CITATION.cff",
+    "BRANCH_AUDIT.md",
+    "GATE_READY.md",
+    "claims.json",
+    "reproduction_verdicts.json",
+    "AUTONOMOUS_STATE.json",
+    "outputs/gate.json",
+    "outputs/verdict.json",
+    "outputs/verdict_c015.json",
+    "outputs/verdict_c23.json",
+    "outputs/c4_mnist.json",
+    "outputs/mnist_binary.npz",
+    "publication_gate.json",
+    "repro/src/srmc.py",
+    "repro/src/verify.py",
+    "repro/src/c4_mnist.py",
+    "repro/src/finalize_gate.py",
+    "verify_final.py"
+  ]
+}

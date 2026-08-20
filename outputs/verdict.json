@@ -5,18 +5,19 @@
   "paper_version_pinned": "v2 (2026-05-22)",
   "scope": "bounded_clean_room_numpy_and_small_ebm_audit",
   "paper_reproduction": "inconclusive",
+  "overall_status": "INCONCLUSIVE_C0_FINITE_ACCOUNTING_C1_PARTIAL_C2_PROXY_C3_MIXED_C4_NOT_REPRODUCED_C5_FINITE_EXACT_NO_PAPER_CLAIMS_VERIFIED_NO_CURRENT_SCORE",
   "claims": {
     "c0": {
       "passed": true,
       "theta_dim_d": 784,
       "discrete_state_space_size": "2^784",
       "empirical_measure_storage_Omega": 101745825697019260773923519755878567461315282017759829107608914364075275235254395622580447400994175578963163918967182013639660669771108475957692810857098847138903161308502419410142185759152435680068435915159402496058513611411689167650816,
-      "continuous_unbounded": Infinity,
+      "continuous_unbounded": "Infinity",
       "SRMC_memory_O(d)": 784,
       "log2_storage_reduction_vs_empirical_measure": 784
     },
     "c1": {
-      "passed": "True",
+      "passed": true,
       "analytic_eq15": {
         "alphas": [
           1.0,
@@ -39,8 +40,7 @@
           0.20241996011122113
         ],
         "tail_slope_large_alpha": -0.9207177346116007,
-        "monotone_decreasing": true,
-        "note": "alpha-dependent block ||M(alpha)^-1||_F of Sigma_{mu mu}; Cov_pi(s,s)=V^-1 exact for Gaussian; -> O(1/alpha)."
+        "monotone_decreasing": true
       },
       "empirical_MALA": {
         "alphas": [
@@ -90,7 +90,7 @@
         8.413408858487514e-17,
         -1.452830911130576e-17,
         -6.037650848028653e-17,
-        -9.452887691357992e-18,
+        -9.45288769169118e-18,
         -1.588356182691264e-17,
         -1.519238294195313e-17,
         -7.15573433840433e-18,
@@ -179,28 +179,21 @@
     "c4": {
       "passed": false,
       "honest_negative": true,
-      "claim": "Static-MNIST SR-GWG 84% KL reduction, Vendi 2.6->6.4 (alpha=1e-4)",
+      "claim": "Static-MNIST SR-GWG 84% KL reduction, Vendi 2.6 to 6.4",
       "GWG": {
         "final_KL": 2.24651652871622,
         "final_vendi": 1.0575993064658735,
         "classes": 5
       },
       "SR-GWG": {
-        "final_KL": 2.229472736495766,
-        "final_vendi": 1.1030059260419438,
+        "final_KL": 2.229472736995766,
+        "final_vendi": 1.1030059264419438,
         "classes": 5
       },
-      "KL_reduction_fraction": 0.0076,
-      "vendi_gain": 0.045,
-      "result": "SR-GWG negligibly better than GWG (~0.8% KL); does NOT reproduce paper's 84%/Vendi 6.4.",
-      "root_cause": "Clean-room RBM (H=300, 18ep) differs from paper's deep EBM; alpha=1e-4 gives negligible tilt at this EBM's score magnitudes; GWG baseline already explores 5/10 classes (not mode-trapped like paper's scenario). Mechanism (score-repellent tilt) is implemented and verified by C1-C3,C5; the EBM-specific magnitude is not reproducible without the authors' model.",
-      "config": {
-        "steps": 3000,
-        "n_chains": 100,
-        "alpha": 0.0001,
-        "H": 300,
-        "epochs": 18
-      }
+      "KL_reduction_fraction": 0.007586764442901073,
+      "vendi_gain": 0.04540661997607032,
+      "result": "Clean-room result is a negative reproduction of the paper-scale claim.",
+      "source": "outputs/c4_mnist.json"
     }
   },
   "claim_status": {
@@ -223,6 +216,12 @@
   "local_checks_passed": 5,
   "partial_claims": 5,
   "paper_claims_verified": 0,
-  "claims_not_reproduced": 6,
-  "canonical_verdict": "INCONCLUSIVE"
+  "claims_not_reproduced": 1,
+  "paper_claims_not_verified": 6,
+  "evidence_points": 8,
+  "evidence_points_total": 12,
+  "current_score_claim": false,
+  "publication_allowed": false,
+  "canonical_verdict": "INCONCLUSIVE",
+  "attribution": "MachineLearning-Nerd <MachineLearning-Nerd@users.noreply.github.com>"
 }
